@@ -1,4 +1,4 @@
-package src_Console;
+package JFX;
 
 public class GameBoard {
 

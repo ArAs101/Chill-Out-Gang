@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+//version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+/*
+dependencies {
+    compile 'org.ow2.chameleon.commons.junit:junit-dep:4.8.2-0000'
+}
+
+ */
