@@ -74,6 +74,33 @@ public class Main {
         System.out.println("_________________________________________________________________________________________");
     }
 
+    public void playGameMultiplayer(Players p1, Players p2)
+    {
+        boolean win = false;
+        double round = 1;
+        while(!win /*&& round != maxiamlround*/)
+        {
+            //toDo Players needs Place Methode
+            //toDo No GameBoard was created
+            //toDo Checkifwon
+            //Code:
+            /*
+            GameBoard.printgameboard();
+            p1.place();
+            checkifwon = true = win = true = break; Player 1 win
+            GameBoard
+            p2.place();
+            checkifwon = true = win = true; - Player 2 win
+
+            */
+        }
+    }
+
+    public void playGameSingelplayer(Players p1, Players p2)
+    {
+        //same as Mulitplayer with random place
+    }
+
 
     public static void main(String[] args) {
         Players p1 = new Players("", 'A');
