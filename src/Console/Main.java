@@ -72,31 +72,42 @@ public class Main {
 
         System.out.println("The game will start soon :)");
         System.out.println("_________________________________________________________________________________________");
-    }
 
-    public void playGameMultiplayer(Players p1, Players p2)
-    {
-        boolean win = false;
-        double round = 1;
-        while(!win /*&& round != maxiamlround*/)
+        if (modechoice == 'S')
         {
-            //toDo Players needs Place Methode
-            //toDo No GameBoard was created
-            //toDo Checkifwon
-            //Code:
-            /*
-            GameBoard.printgameboard();
-            p1.place();
-            checkifwon = true = win = true = break; Player 1 win
-            GameBoard
-            p2.place();
-            checkifwon = true = win = true; - Player 2 win
-
-            */
+            playGameSingelplayer(p1,p2);
+        }
+        else {
+            playGameMultiplayer(p1,p2);
         }
     }
 
-    public void playGameSingelplayer(Players p1, Players p2)
+    public static void playGameMultiplayer(Players p1, Players p2)
+    {
+        GameBoard gameBoard = new GameBoard(p1,p2);
+        boolean win = false;
+        double round = 1;
+        System.out.println("Game starting....");
+        while(!win && round < 43)
+        {
+            //gameBoard.print();
+            System.out.println("Player " + gameBoard.p1.getName() + " turn:");
+            gameBoard.p1.place(gameBoard);
+            round++;
+            if (round >= 43)
+            {
+                break;
+            }
+            //checkifwon = true = win = true = break; Player 1 win
+            //gameBoard.print();
+            System.out.println("Player " + gameBoard.p2.getName() + " turn:");
+            gameBoard.p1.place(gameBoard);
+            round++;
+            //checkifwon = true = win = true; - Player 2 win
+        }
+    }
+
+    public static void playGameSingelplayer(Players p1, Players p2)
     {
         //same as Mulitplayer with random place
     }
@@ -106,5 +117,7 @@ public class Main {
         Players p1 = new Players("", 'A');
         Players p2 = new Players("", 'B');
         MainMenu(p1, p2);
+
+
     }
 }
