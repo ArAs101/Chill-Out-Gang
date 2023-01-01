@@ -3,8 +3,8 @@ package Console;
 import java.util.Scanner;
 
 public class Players {
-    public String name; //change to private?
-    public char symbol; //change to private?
+    private String name;
+    private char symbol;
 
 
     public Players(String name, char symbol) {
@@ -20,10 +20,18 @@ public class Players {
         return symbol;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
+    }
+
     public void place(GameBoard gameBoard)
     {
         Scanner sc = new Scanner(System.in);
-        int selected = 0;
+        int selected;
         boolean loop = true;
         do {
             System.out.print("Enter a number between 1 and 7: ");
