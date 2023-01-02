@@ -31,4 +31,273 @@ public class GameBoard {
         }
         return false;
     }
+
+
+    public boolean checkIfWon(Players p) //needs some testing
+    {
+        char playerSymbol = p.getSymbol();
+        int agileCounter = 0;
+
+        //horizontal checking
+        for(int row = 0; row < rows; row++)
+        {
+            agileCounter = 0;
+
+            for(int col = 0; col < cols; col++)
+            {
+                if (gameBoard[row][col] == playerSymbol)
+                {
+                    agileCounter++;
+                }
+                else
+                {
+                    agileCounter = 0;
+                }
+
+                if(agileCounter == 4)
+                {
+                    return true;
+                }
+            }
+        }
+
+        //vertical checking
+        for(int col = 0; col < cols ; col++)
+        {
+            agileCounter = 0;
+
+            for(int row = 0; row < rows; row++)
+            {
+                if (gameBoard[row][col] == playerSymbol)
+                {
+                    agileCounter++;
+                }
+                else
+                {
+                    agileCounter = 0;
+                }
+
+                if(agileCounter == 4)
+                {
+                    return true;
+                }
+            }
+        }
+
+        //region DIAGONAL CHECKING - PROPABLY WORKING BUT VERY HARDCODED - SO NOT FINISHED ;)
+        //diagonal checking from left to right
+        agileCounter = 0;
+        for(int row = 0; row < rows; row ++) //gelb
+        {
+            if(gameBoard[row][row] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+
+        agileCounter = 0;
+        for(int row = 0; row < rows; row++) //grün unten
+        {
+            if(gameBoard[row][row+1] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+        }
+
+        agileCounter = 0;
+        for(int row = 0; row < rows-1; row++) //orange unten
+        {
+            if(gameBoard[row][row+2] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+        }
+
+        agileCounter = 0;
+        for(int row = 0; row < rows-2; row++) //pink
+        {
+            if(gameBoard[row][row+3] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+        }
+
+        agileCounter = 0;
+        for(int row = 1; row < rows; row++) //grün oben
+        {
+            if(gameBoard[row][row-1] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+        }
+
+        agileCounter = 0;
+        for(int row = 2; row < rows; row++) //orange oben
+        {
+            if(gameBoard[row][row-2] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+        }
+
+        //diagonal checking from right to left
+        agileCounter = 0;
+        for(int row = 0; row < rows; row ++) //gelb
+        {
+
+            if(gameBoard[row][rows-row] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+        for(int row = 0; row < rows-1; row ++) //grün unten
+        {
+
+            if(gameBoard[row][5-row] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+        for(int row = 0; row < rows-2; row ++) //orange
+        {
+
+            if(gameBoard[row][4-row] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+        for(int row = 0; row < rows-3; row ++) //pink
+        {
+
+            if(gameBoard[row][3-row] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+
+        for(int row = 1; row < rows; row ++) //grün oben
+        {
+
+            if(gameBoard[row][6-row+1] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+
+        for(int row = 2; row < rows; row ++) //orange oben
+        {
+
+            if(gameBoard[row][6-row+2] == playerSymbol)
+            {
+                agileCounter++;
+            }
+            else
+            {
+                agileCounter = 0;
+            }
+            if(agileCounter == 4)
+            {
+                return true;
+            }
+
+        }
+        //endregion
+
+        return false;
+    }
+
 }
