@@ -297,6 +297,34 @@ public class GameBoard {
         }
         //endregion
 
+        //region Diagonal checking AI generated -- not tested
+
+        // check diagonals going from top-left to bottom-right
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (gameBoard[i][j] == gameBoard[i+1][j+1] && gameBoard[i+1][j+1] == gameBoard[i+2][j+2] && gameBoard[i+2][j+2] == gameBoard[i+3][j+3])
+                {
+                    return true;
+                }
+            }
+        }
+
+        // check diagonals going from top-right to bottom-left
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 3; j < 7; j++)
+            {
+                if (gameBoard[i][j] == gameBoard[i+1][j-1] && gameBoard[i+1][j-1] == gameBoard[i+2][j-2] && gameBoard[i+2][j-2] == gameBoard[i+3][j-3])
+                {
+                   return true;
+                }
+            }
+        }
+
+        //endregion
+
         return false;
     }
 
