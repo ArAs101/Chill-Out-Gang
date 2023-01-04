@@ -108,7 +108,7 @@ public class Main {
             if (win)
             {
                 gameBoard.print();
-                System.out.println("Player " + gameBoard.p1.getName() + " wins!");
+                System.out.println("Player " + gameBoard.p2.getName() + " wins!");
                 break;
             }
         }
@@ -147,7 +147,7 @@ public class Main {
             if (win)
             {
                 gameBoard.print();
-                System.out.println("Player " + gameBoard.p1.getName() + " wins!");
+                System.out.println("Player " + gameBoard.p2.getName() + " wins!");
                 break;
             }
         }
