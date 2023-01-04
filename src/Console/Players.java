@@ -57,6 +57,7 @@ public class Players {
                     System.out.println("Selected: " + selected);
                     loop = false;
                 }
+            selected = random.nextInt(7) + 1;
 
         } while (loop);
     }

@@ -17,7 +17,6 @@ public class GameBoard {
         this.gameBoard = new char[rows][cols];
     }
 
-    //toDo Print Gameboard
 
     public boolean placeOnGameBoard(Players p, int col)
     {

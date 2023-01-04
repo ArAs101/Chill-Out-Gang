@@ -122,40 +122,37 @@ public class Main {
 
     public static void playGameSingleplayer(Players p1, Players p2)
     {
-        GameBoard gameBoard = new GameBoard(p1,p2);
-        boolean win = false;
-        double round = 1;
-        System.out.println("Game starting....");
-        while(!win && round < 43)
-        {
-            gameBoard.print();
-            System.out.println("Player " + gameBoard.p1.getName() + " turn:");
-            gameBoard.p1.place(gameBoard);
-            round++;
-            win = gameBoard.checkWin(p1);
-            if (win)
-            {
+            GameBoard gameBoard = new GameBoard(p1, p2);
+            boolean win = false;
+            double round = 1;
+            System.out.println("Game starting....");
+            while (!win && round < 43) {
                 gameBoard.print();
-                System.out.println("Player " + gameBoard.p1.getName() + " wins!");
-                break;
-            }
-            gameBoard.print();
-            System.out.println("Player " + gameBoard.p2.getName() + " turn:");
-            gameBoard.p2.place(gameBoard,true);
-            round++;
-            win = gameBoard.checkWin(p2);
-            if (win)
-            {
+                System.out.println("Player " + gameBoard.p1.getName() + " turn:");
+                gameBoard.p1.place(gameBoard);
+                round++;
+                win = gameBoard.checkWin(p1);
+                if (win) {
+                    gameBoard.print();
+                    System.out.println("Player " + gameBoard.p1.getName() + " wins!");
+                    break;
+                }
                 gameBoard.print();
-                System.out.println("Player " + gameBoard.p2.getName() + " wins!");
-                break;
+                System.out.println("Player " + gameBoard.p2.getName() + " turn:");
+                gameBoard.p2.place(gameBoard, true);
+                round++;
+                win = gameBoard.checkWin(p2);
+                if (win) {
+                    gameBoard.print();
+                    System.out.println("Player " + gameBoard.p2.getName() + " wins!");
+                    break;
+                }
             }
-        }
-        if (!win)
-        {
-            gameBoard.print();
-            System.out.println("Nobody wins!");
-        }
+            if (!win) {
+                gameBoard.print();
+                System.out.println("Nobody wins!");
+            }
+
     }
 
 
