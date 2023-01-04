@@ -1,5 +1,6 @@
 package Console;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Players {
@@ -44,6 +45,19 @@ public class Players {
                 }
             }
         } while ((selected < 1 || selected > 7) || loop);
+    }
+    public void place(GameBoard gameBoard, boolean bot)
+    {
+        Random random = new Random();
+        int selected = random.nextInt(7) + 1;
+        boolean loop = true;
+        do {
+                if(gameBoard.placeOnGameBoard(this,selected-1))
+                {
+                    System.out.println("Selected: " + selected);
+                    loop = false;
+                }
 
+        } while (loop);
     }
 }

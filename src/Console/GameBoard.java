@@ -83,7 +83,7 @@ public class GameBoard {
                 }
             }
         }
-
+/*
         //region DIAGONAL CHECKING - PROPABLY WORKING BUT VERY HARDCODED - SO NOT FINISHED ;)
         //diagonal checking from left to right
         agileCounter = 0;
@@ -295,6 +295,7 @@ public class GameBoard {
             }
 
         }
+        */
         //endregion
 
         //region Diagonal checking AI generated -- not tested
@@ -327,5 +328,67 @@ public class GameBoard {
 
         return false;
     }
+//Nur zum Testen
+    public void print()
+    {
+        for (int i = 0; i < this.gameBoard.length; i++) {
+            for (int j = 0; j < this.gameBoard[i].length; j++) {
+                System.out.print(this.gameBoard[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 
+    public boolean checkWin(Players p) { //AI generated
+        // check rows
+        for (int row = 0; row < gameBoard.length; row++) {
+            int consecutiveCount = 0;
+            for (int col = 0; col < gameBoard[0].length; col++) {
+                if (gameBoard[row][col] == p.getSymbol()) {
+                    consecutiveCount++;
+                    if (consecutiveCount == 4) {
+                        return true;
+                    }
+                } else {
+                    consecutiveCount = 0;
+                }
+            }
+        }
+
+        // check columns
+        for (int col = 0; col < gameBoard[0].length; col++) {
+            int consecutiveCount = 0;
+            for (int row = 0; row < gameBoard.length; row++) {
+                if (gameBoard[row][col] == p.getSymbol()) {
+                    consecutiveCount++;
+                    if (consecutiveCount == 4) {
+                        return true;
+                    }
+                } else {
+                    consecutiveCount = 0;
+                }
+            }
+        }
+
+        // check diagonal (top left to bottom right)
+        for (int row = 0; row < gameBoard.length - 3; row++) {
+            for (int col = 0; col < gameBoard[0].length - 3; col++) {
+                if (gameBoard[row][col] == p.getSymbol() && gameBoard[row + 1][col + 1] == p.getSymbol() &&
+                        gameBoard[row + 2][col + 2] == p.getSymbol() && gameBoard[row + 3][col + 3] == p.getSymbol()) {
+                    return true;
+                }
+            }
+        }
+
+        // check diagonal (top right to bottom left)
+        for (int row = 0; row < gameBoard.length - 3; row++) {
+            for (int col = 3; col < gameBoard[0].length; col++) {
+                if (gameBoard[row][col] == p.getSymbol() && gameBoard[row + 1][col - 1] == p.getSymbol() &&
+                        gameBoard[row + 2][col - 2] == p.getSymbol() && gameBoard[row + 3][col - 3] == p.getSymbol()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
