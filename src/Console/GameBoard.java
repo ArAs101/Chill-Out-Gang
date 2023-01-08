@@ -32,279 +32,64 @@ public class GameBoard {
     }
 
 
-    public boolean checkIfWon(Players p) //needs some testing
+    public boolean checkIfWon(Players p)
     {
         char playerSymbol = p.getSymbol();
         int agileCounter = 0;
 
         //horizontal checking
-        for(int row = 0; row < rows; row++)
+        for(int row = 0; row < gameBoard.length; row++)
         {
             agileCounter = 0;
 
-            for(int col = 0; col < cols; col++)
+            for(int col = 0; col < gameBoard[0].length; col++)
             {
                 if (gameBoard[row][col] == playerSymbol)
                 {
                     agileCounter++;
+
+                    if(agileCounter == 4)
+                    {
+                        return true;
+                    }
                 }
                 else
                 {
                     agileCounter = 0;
                 }
 
-                if(agileCounter == 4)
-                {
-                    return true;
-                }
             }
         }
 
         //vertical checking
-        for(int col = 0; col < cols ; col++)
+        for(int col = 0; col < gameBoard[0].length ; col++)
         {
             agileCounter = 0;
 
-            for(int row = 0; row < rows; row++)
+            for(int row = 0; row < gameBoard.length; row++)
             {
                 if (gameBoard[row][col] == playerSymbol)
                 {
                     agileCounter++;
+
+                    if(agileCounter == 4)
+                    {
+                        return true;
+                    }
                 }
                 else
                 {
                     agileCounter = 0;
                 }
-
-                if(agileCounter == 4)
-                {
-                    return true;
-                }
-            }
-        }
-/*
-        //region DIAGONAL CHECKING - PROPABLY WORKING BUT VERY HARDCODED - SO NOT FINISHED ;)
-        //diagonal checking from left to right
-        agileCounter = 0;
-        for(int row = 0; row < rows; row ++) //gelb
-        {
-            if(gameBoard[row][row] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-
-        agileCounter = 0;
-        for(int row = 0; row < rows; row++) //grün unten
-        {
-            if(gameBoard[row][row+1] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
             }
         }
 
-        agileCounter = 0;
-        for(int row = 0; row < rows-1; row++) //orange unten
-        {
-            if(gameBoard[row][row+2] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-        }
-
-        agileCounter = 0;
-        for(int row = 0; row < rows-2; row++) //pink
-        {
-            if(gameBoard[row][row+3] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-        }
-
-        agileCounter = 0;
-        for(int row = 1; row < rows; row++) //grün oben
-        {
-            if(gameBoard[row][row-1] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-        }
-
-        agileCounter = 0;
-        for(int row = 2; row < rows; row++) //orange oben
-        {
-            if(gameBoard[row][row-2] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-        }
-
-        //diagonal checking from right to left
-        agileCounter = 0;
-        for(int row = 0; row < rows; row ++) //gelb
-        {
-
-            if(gameBoard[row][rows-row] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-        for(int row = 0; row < rows-1; row ++) //grün unten
-        {
-
-            if(gameBoard[row][5-row] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-        for(int row = 0; row < rows-2; row ++) //orange
-        {
-
-            if(gameBoard[row][4-row] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-        for(int row = 0; row < rows-3; row ++) //pink
-        {
-
-            if(gameBoard[row][3-row] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-
-        for(int row = 1; row < rows; row ++) //grün oben
-        {
-
-            if(gameBoard[row][6-row+1] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-
-        for(int row = 2; row < rows; row ++) //orange oben
-        {
-
-            if(gameBoard[row][6-row+2] == playerSymbol)
-            {
-                agileCounter++;
-            }
-            else
-            {
-                agileCounter = 0;
-            }
-            if(agileCounter == 4)
-            {
-                return true;
-            }
-
-        }
-        */
-        //endregion
-
-        //region Diagonal checking AI generated -- not tested
-
-        // check diagonals going from top-left to bottom-right
+        // check diagonals going from bottom-left to top-right
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 4; j++)
             {
-                if (gameBoard[i][j] == gameBoard[i+1][j+1] && gameBoard[i+1][j+1] == gameBoard[i+2][j+2] && gameBoard[i+2][j+2] == gameBoard[i+3][j+3])
+                if (gameBoard[i][j] == playerSymbol && gameBoard[i+1][j+1] == playerSymbol && gameBoard[i+1][j+1] == playerSymbol && gameBoard[i+2][j+2] == playerSymbol && gameBoard[i+2][j+2] == playerSymbol && gameBoard[i+3][j+3] == playerSymbol)
                 {
                     return true;
                 }
@@ -316,14 +101,12 @@ public class GameBoard {
         {
             for (int j = 3; j < 7; j++)
             {
-                if (gameBoard[i][j] == gameBoard[i+1][j-1] && gameBoard[i+1][j-1] == gameBoard[i+2][j-2] && gameBoard[i+2][j-2] == gameBoard[i+3][j-3])
+                if (gameBoard[i][j] == playerSymbol && gameBoard[i+1][j-1] == playerSymbol && gameBoard[i+1][j-1] == playerSymbol && gameBoard[i+2][j-2] == playerSymbol && gameBoard[i+2][j-2] == playerSymbol &&  gameBoard[i+3][j-3] == playerSymbol)
                 {
                    return true;
                 }
             }
         }
-
-        //endregion
 
         return false;
     }
@@ -336,58 +119,5 @@ public class GameBoard {
             }
             System.out.println();
         }
-    }
-
-    public boolean checkWin(Players p) { //AI generated
-        // check rows
-        for (int row = 0; row < gameBoard.length; row++) {
-            int consecutiveCount = 0;
-            for (int col = 0; col < gameBoard[0].length; col++) {
-                if (gameBoard[row][col] == p.getSymbol()) {
-                    consecutiveCount++;
-                    if (consecutiveCount == 4) {
-                        return true;
-                    }
-                } else {
-                    consecutiveCount = 0;
-                }
-            }
-        }
-
-        // check columns
-        for (int col = 0; col < gameBoard[0].length; col++) {
-            int consecutiveCount = 0;
-            for (int row = 0; row < gameBoard.length; row++) {
-                if (gameBoard[row][col] == p.getSymbol()) {
-                    consecutiveCount++;
-                    if (consecutiveCount == 4) {
-                        return true;
-                    }
-                } else {
-                    consecutiveCount = 0;
-                }
-            }
-        }
-
-        // check diagonal (top left to bottom right)
-        for (int row = 0; row < gameBoard.length - 3; row++) {
-            for (int col = 0; col < gameBoard[0].length - 3; col++) {
-                if (gameBoard[row][col] == p.getSymbol() && gameBoard[row + 1][col + 1] == p.getSymbol() &&
-                        gameBoard[row + 2][col + 2] == p.getSymbol() && gameBoard[row + 3][col + 3] == p.getSymbol()) {
-                    return true;
-                }
-            }
-        }
-
-        // check diagonal (top right to bottom left)
-        for (int row = 0; row < gameBoard.length - 3; row++) {
-            for (int col = 3; col < gameBoard[0].length; col++) {
-                if (gameBoard[row][col] == p.getSymbol() && gameBoard[row + 1][col - 1] == p.getSymbol() &&
-                        gameBoard[row + 2][col - 2] == p.getSymbol() && gameBoard[row + 3][col - 3] == p.getSymbol()) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }

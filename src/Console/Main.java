@@ -93,7 +93,7 @@ public class Main {
             System.out.println("Player " + gameBoard.p1.getName() + " turn:");
             gameBoard.p1.place(gameBoard);
             round++;
-            win = gameBoard.checkWin(p1);
+            win = gameBoard.checkIfWon(p1);
             if (win)
             {
                 gameBoard.print();
@@ -104,7 +104,7 @@ public class Main {
             System.out.println("Player " + gameBoard.p2.getName() + " turn:");
             gameBoard.p2.place(gameBoard);
             round++;
-            win = gameBoard.checkWin(p2);
+            win = gameBoard.checkIfWon(p2);
             if (win)
             {
                 gameBoard.print();
@@ -131,7 +131,7 @@ public class Main {
                 System.out.println("Player " + gameBoard.p1.getName() + " turn:");
                 gameBoard.p1.place(gameBoard);
                 round++;
-                win = gameBoard.checkWin(p1);
+                win = gameBoard.checkIfWon(p1);
                 if (win) {
                     gameBoard.print();
                     System.out.println("Player " + gameBoard.p1.getName() + " wins!");
@@ -141,7 +141,7 @@ public class Main {
                 System.out.println("Player " + gameBoard.p2.getName() + " turn:");
                 gameBoard.p2.place(gameBoard, true);
                 round++;
-                win = gameBoard.checkWin(p2);
+                win = gameBoard.checkIfWon(p2);
                 if (win) {
                     gameBoard.print();
                     System.out.println("Player " + gameBoard.p2.getName() + " wins!");
